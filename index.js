@@ -1,33 +1,29 @@
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
+import serverless from "serverless-http";
 
 const app = express();
-const port = 3000; // Not used by Vercel, but good for local testing
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "golden.dev.216@gmail.com", // your Gmail address
-    pass: "oguf funy xfjt jjuh", // Gmail app password (not account password)
+    user: process.env.EMAIL_USER, // use env var
+    pass: process.env.EMAIL_PASS, // use env var
   },
 });
 
-// Route to receive email data and send
 app.post("/api/send-email", async (req, res) => {
   const { email } = req.body;
 
-  if (!email || !message) {
-    return res.status(400).json({ error: "Missing email or message" });
+  if (!email) {
+    return res.status(400).json({ error: "Missing email" });
   }
 
   const mailOptions = {
-    from: "golden.dev.216@gmail.com",
+    from: process.env.EMAIL_USER,
     to: email,
     subject: "Welcome to BigiWallet",
     html: `
@@ -57,5 +53,5 @@ app.post("/api/send-email", async (req, res) => {
   }
 });
 
-// Export for Vercel
+// Export the handler for Vercel
 export default serverless(app);
