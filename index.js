@@ -9,8 +9,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER, // use env var
-    pass: process.env.EMAIL_PASS, // use env var
+    user: "golden.dev.216@gmail.com", // use env var
+    pass: "vdqb htzg bqgj fzjp", // use env var
   },
 });
 
@@ -22,7 +22,7 @@ app.post("/api/send-email", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: "golden.dev.216@gmail.com",
     to: email,
     subject: "Welcome to BigiWallet",
     html: `
@@ -52,5 +52,6 @@ app.post("/api/send-email", async (req, res) => {
   }
 });
 
-// Export the handler for Vercel
-export default app;
+app.listen(3000, () => {
+  console.log("server is running on port 3000");
+});
