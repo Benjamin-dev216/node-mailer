@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
-import serverless from "serverless-http";
 
 const app = express();
 app.use(cors());
@@ -54,4 +53,4 @@ app.post("/api/send-email", async (req, res) => {
 });
 
 // Export the handler for Vercel
-export default serverless(app);
+export default app;
