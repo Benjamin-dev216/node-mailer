@@ -7,10 +7,12 @@ app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "mail.bigiwallet.io",       // From your screenshot
+  port: 465,                         // Secure SMTP port
+  secure: true,                      // True for port 465 (SSL)
   auth: {
-    user: "golden.dev.216@gmail.com", // use env var
-    pass: "vdqb htzg bqgj fzjp", // use env var
+    user: "contact@bigiwallet.io",  // Your domain email
+    pass: "Bigiwallet91*",    // Replace with real password or env var
   },
 });
 
