@@ -7,12 +7,12 @@ app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.mailgun.org",
-  port: 587,
-  secure: false,
+  host: "mail.bigiwallet.io",       // From your screenshot
+  port: 465,                         // Secure SMTP port
+  secure: true,                      // True for port 465 (SSL)
   auth: {
-    user: "postmaster@YOURDOMAIN.mailgun.org",
-    pass: "YOUR_MAILGUN_SMTP_PASSWORD",
+    user: "contact@bigiwallet.io",  // Your domain email
+    pass: "Bigiwallet91*",    // Replace with real password or env var
   },
 });
 
