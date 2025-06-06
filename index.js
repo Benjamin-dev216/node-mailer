@@ -8,8 +8,6 @@ app.use(express.json());
 
 const transporter = nodemailer.createTransport({
   host: "mail.bigiwallet.io",       // From your screenshot
-  port: 465,                         // Secure SMTP port
-  secure: true,                      // True for port 465 (SSL)
   auth: {
     user: "contact@bigiwallet.io",  // Your domain email
     pass: "Bigiwallet91*",    // Replace with real password or env var
