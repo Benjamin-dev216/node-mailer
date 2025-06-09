@@ -24,7 +24,7 @@ app.post("/api/send-email", async (req, res) => {
   }
 
   const mailOptions = {
-    from: "golden.dev.216@gmail.com",
+    from: "contact@bigiwallet.io",
     to: email,
     subject: "Welcome to BigiWallet",
     html: `
